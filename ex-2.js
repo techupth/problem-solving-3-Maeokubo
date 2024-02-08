@@ -1,7 +1,17 @@
 // Exercise 2: Single Number
 
 const singleNumber = function (nums) {
-  // Start coding here
+  const numCount = new Map();
+
+  for (let num of nums) {
+    numCount.set(num, (numCount.get(num) || 0) + 1);
+  }
+
+  for (let [num, count] of numCount) {
+    if (count === 1) {
+      return num;
+    }
+  }
 };
 
 const result1 = singleNumber([2, 2, 1]);
